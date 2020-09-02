@@ -15,6 +15,8 @@ Grey dark 2: #777
 Grey dark 3: #999
 
 */
+@use 'mixins';
+@use 'base';
 
 .container {
     max-width: 120rem;
@@ -22,6 +24,23 @@ Grey dark 3: #999
     background-color: var(--color-grey-light-2);
     box-shadow:var(--shadow-dark);
     min-height: 50rem;
+    
+    @include mixins.respond(base.$bp-largest)
+    {
+
+        margin: 0;
+        max-width: 100%;
+        min-height: 100vh;
+        width: 100%;
+    }
+
+    @include mixins.respond(36.75em)
+    {
+        flex-direction: column;
+        padding: 0;
+    }
+
+
 }
 
 .header 
@@ -33,10 +52,22 @@ Grey dark 3: #999
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include mixins.respond(36.75em)
+    {
+        padding-right: 5rem;
+
+    }
+    
 }
 
 .content {
     display: flex;
+
+    @include mixins.respond(68rem)
+    {
+        flex-direction: column;
+
+    }
 }
 
 
@@ -60,6 +91,18 @@ Grey dark 3: #999
     padding: 4.5rem;
     background-color: var(--color-grey-light-1);
     border-bottom: 1px solid var(--color-grey-light-2);
+
+    @include mixins.respond(46.25em)
+    {
+        padding: 2.8rem;
+    }
+    
+    @include mixins.respond(37.5em)
+    {
+        flex-direction: column;
+        margin-right: auto;
+    }
+    
 }
 
 
@@ -71,6 +114,17 @@ Grey dark 3: #999
     padding: 3rem;
     flex: 0 0 60%;
     margin-right: 4.5rem;
+        @include mixins.respond(46.25em)
+    {
+        padding: 2rem;
+        margin-right: 2.7rem;
+    }
+    @include mixins.respond(37.5em)
+    {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+    
 }
 
 .user-reviews 

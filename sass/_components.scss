@@ -15,7 +15,8 @@ Grey dark 2: #777
 Grey dark 3: #999
 
 */
-
+@use 'base';
+@use 'mixins';
 /*----------------HEADER -----------------*/              
 .logo 
 {
@@ -169,6 +170,24 @@ Grey dark 3: #999
         }
     }
 
+    @include mixins.respond(36.75em)
+    {
+        display: flex;
+        margin-top: 0;
+        justify-content: space-between;
+        &__item 
+        {
+            flex: 1;
+            &:not(:last-child)
+            {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+
+
     &__item::before 
     {
      content: "";
@@ -207,6 +226,11 @@ Grey dark 3: #999
 
         display: flex;
         align-items: center;
+        @include mixins.respond(36.75em)
+        {
+            flex-direction: column;
+            padding: .7rem 1.5rem;
+        }
     }
 
 
@@ -217,6 +241,13 @@ Grey dark 3: #999
         height: 1.75rem;
         fill: currentColor;
         margin-right: 2rem;
+
+        @include mixins.respond(36.75em)
+        {
+            margin-right: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
     &__notification 
     {
@@ -230,6 +261,13 @@ Grey dark 3: #999
     text-align: center;
     padding: 2.5rem;
     color: var(--color-grey-light-4);
+
+    @include mixins.respond(68rem)
+    {
+        display: none;
+
+    }
+
 }
 
 
@@ -270,6 +308,18 @@ Grey dark 3: #999
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 1.5rem 3rem;
+        
+        @include mixins.respond(68rem)
+        {
+            font-size: 1.5rem;
+        }
+
+        @include mixins.respond(36.75em)
+        {
+            padding: 0.5rem 2.5rem;
+        }
+           
+           
     }
 
     &__stars 
@@ -308,6 +358,11 @@ Grey dark 3: #999
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        @include mixins.respond(36.75em)
+        {
+            padding: 0 1.5rem;
+
+        }
     }
 
     &__rating-average 
@@ -321,6 +376,11 @@ Grey dark 3: #999
         font-size: .8rem;
         font-weight: 300;
         text-transform: uppercase;
+        @include mixins.respond(36.75em)
+        {
+            padding-bottom: 5px;
+
+        }
 
     }
     
@@ -442,7 +502,7 @@ Grey dark 3: #999
         border: 3px solid #fff;
         &:not(:last-child)
         {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -458,7 +518,11 @@ Grey dark 3: #999
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
-    
+    @include mixins.respond(46.25em)
+    {
+        padding: 2rem;
+        margin-bottom: 2.8rem;
+    }
     &::before 
     {
         content: "\201C";
@@ -537,12 +601,21 @@ Grey dark 3: #999
     padding: 3.5rem 0;
     text-align: center;
 
+    @include mixins.respond(46.25em)
+    {
+        padding: 2.5rem 0;
+    }
+
     &__book-now 
     {
         text-transform: uppercase;
         margin-bottom: 2.5rem;
         font-weight: 300;
         font-size: 2rem;
+        @include mixins.respond(36.75em)
+        {
+            font-size: 1.8rem;
+        }
     }
 }
 
